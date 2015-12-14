@@ -1,4 +1,4 @@
-require "ssl_reminder/engine"
+require_relative "ssl_reminder/engine"
 
 module SslReminder
 end
