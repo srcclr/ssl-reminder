@@ -17,7 +17,7 @@ module SslReminder
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-        http.start { |h| h.peer_cert }
+        http.start(&:peer_cert)
       end
 
       def connection

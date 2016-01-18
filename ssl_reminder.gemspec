@@ -1,4 +1,4 @@
-$:.push File.expand_path("../lib", __FILE__)
+$LOAD_PATH.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
 require "ssl_reminder/version"
@@ -18,4 +18,14 @@ Gem::Specification.new do |s|
   s.test_files = Dir["spec/**/*"]
 
   s.add_dependency "rails", "~> 4.2.1"
+
+  s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "rspec-its"
+  s.add_development_dependency "byebug"
+  s.add_development_dependency "pry-byebug"
+  s.add_development_dependency "database_cleaner"
+  s.add_development_dependency "pg"
+  s.add_development_dependency "rubocop"
+  s.add_development_dependency "factory_girl_rails"
+  s.add_development_dependency "ffaker"
 end
