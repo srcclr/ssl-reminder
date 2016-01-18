@@ -7,7 +7,6 @@ AllCops:
     - lib/templates/**/*
     - vendor/**/*
     - spec/dummy/**/*
-    - spec/spec_helper.rb
 
 Rails:
     Enabled: true

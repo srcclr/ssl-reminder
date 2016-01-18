@@ -10,12 +10,12 @@ module SslReminder
       end
 
       def response
-        @response ||= connection.get
+        @response ||= client.get
       end
 
       private
 
-      def connection
+      def client
         Faraday.new(url: "http://#{@url}", headers: header_options, request: request_options) do |builder|
           builder.request :url_encoded
           builder.use FaradayMiddleware::FollowRedirects, limit: 10

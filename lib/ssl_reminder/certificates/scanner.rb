@@ -7,7 +7,7 @@ module SslReminder
 
       def scan!
         cert = fetch_certificate
-        save_cert(cert)
+        cert.not_after
       end
 
       private
