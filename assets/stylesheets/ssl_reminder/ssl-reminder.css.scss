@@ -1,0 +1,24 @@
+.ssl-reminder {}
+
+.badge--safe,
+.badge--warning,
+.badge--danger,
+.badge--expired,
+.badge--unavailable {
+  @extend .badge;
+
+  font-family: "Simple Regular", sans-serif;
+  display: inline-block;
+  width: 100%;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.badge--safe { @extend .badge--success; }
+.badge--warning { @extend .badge--warning--medium; }
+.badge--danger { @extend .badge--warning--high; }
+.badge--expired { @extend .badge--dark; }
+
+.bar-chart {
+  
+}
