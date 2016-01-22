@@ -12,7 +12,7 @@
   </section>
 
   <section class="expiration-stats mb+">
-    <h3>Expiration Stats</h3>
+    <h3 class="mb">Expiration Stats</h3>
     {{bar-chart data=model.domains}}
   </section>
 
@@ -22,11 +22,12 @@
       <table class="domains-list-table mb w--100">
         <thead>
           <tr>
-            <th class="w--30 pl0">Domain Name</th>
+            <th class="w--20 pl0">Domain Name</th>
             <th class="w--25">Domain URL</th>
             <th class="w--25">Expiration Date</th>
             <th class="w--10">Status</th>
-            <th class="w--5"></th>
+            <th class="w--10">Notifications</th>
+            <th class="w--10"></th>
           </tr>
         </thead>
         {{#each domain in model.domains itemController="domain"}}
@@ -42,12 +43,15 @@
             </td>
             <td>
               {{#if domain.model.status}}
-                <span class="badge--{{domain.model.status.name}}">{{domain.model.status.name}}</span>
+                <span class="badge--{{domain.model.status}}">{{domain.model.status}}</span>
               {{else}}
                 <span class="badge--unavailable">Unavailable</span>
               {{/if}}
             </td>
-            <td>
+            <td class="text--center">
+              {{input type="checkbox"}}
+            </td>
+            <td class="text--right">
               {{d-button action="destroy" icon="trash-o"}}
             </td>
           </tr>
