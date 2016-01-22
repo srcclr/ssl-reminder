@@ -1,8 +1,22 @@
 export default Ember.Component.extend({
-  classNames:  ['bar-chart'],
+  classNames:  ['barchart'],
 
-  draw: function() {
-    var grouped = _.groupBy(this.get('data'), 'status');
-    this.set('stats', grouped);
-  }.on("didInsertElement"),
+  groupedResults: function () {
+    let result = [];
+
+    this.get('data').forEach(item => {
+      let hasType = result.findBy('status', item.get('status'));
+
+      if (!hasType) {
+        result.pushObject(Ember.Object.create({
+          status: item.get('status'),
+          contents: []
+        }));
+      }
+
+      result.findBy('status', item.get('status')).get('contents').pushObject(item);
+    });
+
+     return result;
+  }.property('content.[]')
 });

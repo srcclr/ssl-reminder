@@ -1,7 +1,47 @@
 .barchart {
-
+  display: flex;
+  flex-direction: column;
+  width: 300px;
 }
 
 .barchart-column {
-  
+  margin-bottom: 10px;
+  height: 25px;
+
+  display: flex;
+}
+
+.barchart-column__title {
+  font-family: "Simple Regular", sans-serif;
+  font-size: 15px;
+  text-transform: uppercase;
+  width: 100px;
+  flex:1;
+  text-align: right;
+  padding: 5px;
+}
+
+.barchart-column__bar {
+  flex: 3;
+
+  div {
+    line-height: 25px;
+    padding: 0 5px;
+  }
+}
+
+.barchart-column__bar--safe > div {
+  @extend .bg-color--success;
+}
+
+.barchart-column__bar--warning > div {
+  @extend .bg-color--warning;
+}
+
+.barchart-column__bar--danger > div {
+  @extend .bg-color--danger;
+}
+
+.barchart-column__bar--expired > div {
+  @extend .bg-color--black;
 }

@@ -5,6 +5,7 @@
 require(File.expand_path("../lib/ssl_reminder", __FILE__))
 
 register_asset("stylesheets/ssl_reminder/ssl-reminder.css.scss")
+register_asset("stylesheets/ssl_reminder/bar-chart.css.scss")
 
 Discourse::Application.routes.append do
   mount SslReminder::Engine, at: "/ssl-reminder"

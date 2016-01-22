@@ -24,7 +24,7 @@ let Domain = Discourse.Model.extend({
     return _(EXPIRATION_DAYS_BREAKPOINTS)
       .filter((b) => daysRemaining > b.value)
       .max((b) => b.value)
-      .value();
+      .value().name;
   }),
 
   destroy() {
