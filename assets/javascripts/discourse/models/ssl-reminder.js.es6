@@ -5,7 +5,17 @@ const FIXTURES = [
     id: 0,
     name: 'test',
     expiration_date: '2016-12-12'
-  }
+  },
+  {
+    id: 1,
+    name: 'test',
+    expiration_date: '2016-1-30'
+   },
+  {
+    id: 3,
+    name: 'test',
+    expiration_date: '2016-01-02'
+   }
 ];
 
 let SslReminder = Discourse.Model.extend({
