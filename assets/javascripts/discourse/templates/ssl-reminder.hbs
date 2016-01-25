@@ -18,12 +18,11 @@
 
   {{#if model.domains}}
     <section class="my-domains mb+">
-      <h3>My domains</h3>
       <table class="domains-list-table mb w--100">
         <thead>
           <tr>
-            <th class="w--20 pl0">Domain Name</th>
-            <th class="w--25">Domain URL</th>
+            <th class="w--20 pl0">Site Name</th>
+            <th class="w--25">Site URL</th>
             <th class="w--25">Expiration Date</th>
             <th class="w--10">Status</th>
             <th class="w--10">Notifications</th>
@@ -39,7 +38,7 @@
               <a href="{{domain.model.url}}" target="_blank">{{domain.model.url}}</a>
             </td>
             <td>
-              {{domain.model.expiration_date}}
+              {{domain.model.expiry_date}}
             </td>
             <td>
               {{#if domain.model.status}}

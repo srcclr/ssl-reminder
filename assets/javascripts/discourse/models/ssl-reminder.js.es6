@@ -18,9 +18,10 @@ let SslReminder = Discourse.Model.extend({
 });
 
 SslReminder.reopenClass({
-  createFromJson() {
+  createFromJson(json) {
     return this.create({
-      domains: _.map(FIXTURES, (domain) => { return Domain.create(domain); }),
+      // domains: _.map(json.ssl_reminder_domains, (domain) => { return Domain.create(domain); })
+      domains: _.map(FIXTURES, (domain) => { return Domain.create(domain); })
     });
   }
 });
