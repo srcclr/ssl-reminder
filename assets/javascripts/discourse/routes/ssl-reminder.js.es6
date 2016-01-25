@@ -2,7 +2,7 @@ import SslReminder from "../models/ssl-reminder";
 import RedirectIfNotLoggedIn from "../mixins/redirect-if-not-logged-in";
 
 export default Discourse.Route.extend(RedirectIfNotLoggedIn, {
-  redirect() { return this.redirectIfNotLoggedIn("/projects/csp-reports"); },
+  redirect() { return this.redirectIfNotLoggedIn("/projects/ssl-reminder"); },
 
   model() {
     return PreloadStore.getAndRemove('domains', () => {

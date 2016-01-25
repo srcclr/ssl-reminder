@@ -21,7 +21,7 @@ const EXPIRATION_DAYS_BREAKPOINTS = [
 
 let Domain = Discourse.Model.extend({
   status: Em.computed("expiration_date", function(){
-    if (this.get("expiration_date") == "") {
+    if (this.get("expiration_date") == null || this.get("expiration_date") == "") {
       return "none";
     } else {
       let now = moment().startOf("day");
@@ -37,8 +37,7 @@ let Domain = Discourse.Model.extend({
 
   destroy() {
     return Discourse.ajax('/ssl-reminder/domains/' + this.get('id'), { type: 'DELETE' });
-  },
-
+  }
 });
 
 Domain.reopenClass({
@@ -47,7 +46,8 @@ Domain.reopenClass({
       id: json.id,
       name: json.name,
       url: json.url,
-      expiration_date: json.expiration_date
+      expiration_date: json.expiration_date,
+      notification_enabled: json.notification_enabled
     });
   }
 });

@@ -10,7 +10,7 @@ module SslReminder
       if (request.format && request.format.json?) || request.xhr? || !request.get?
         render json: {}
       else
-        redirect_to path("/projects/csp-reports")
+        redirect_to path("/projects/ssl-reminder")
       end
     end
 
@@ -31,6 +31,12 @@ module SslReminder
 
     def destroy
       status = domain && domain.destroy ? :ok : :not_found
+
+      head status
+    end
+
+    def toggle_notification
+      status = domain.update(notification_enabled: !domain.notification_enabled) ? :ok : :not_found
 
       head status
     end

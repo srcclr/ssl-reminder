@@ -44,7 +44,9 @@
               <span class="badge--{{domain.model.status}}">{{domain.model.status}}</span>
             </td>
             <td class="text--center">
-              {{input type="checkbox"}}
+              <label {{action "toggleDomainNotification" domain.model.id on="click"}}>
+                {{input type="checkbox" checked=domain.model.notification_enabled}}
+              </label>
             </td>
             <td class="text--right">
               {{d-button action="destroy" icon="trash-o"}}
