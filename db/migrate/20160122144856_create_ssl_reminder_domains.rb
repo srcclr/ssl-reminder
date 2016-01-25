@@ -5,7 +5,7 @@ class CreateSslReminderDomains < ActiveRecord::Migration
       t.string :name
       t.string :url
       t.string :status
-      t.date :expiry_date
+      t.date :expiration_date
       t.boolean :notification_enabled
 
       t.timestamps

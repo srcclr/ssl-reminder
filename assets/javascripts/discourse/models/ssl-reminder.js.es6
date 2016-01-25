@@ -14,7 +14,17 @@ const FIXTURES = [
   {
     id: 3,
     name: 'test',
-    expiration_date: '2016-01-02'
+    expiration_date: '2016-02-02'
+   },
+  {
+    id: 4,
+    name: 'expired',
+    expiration_date: '2015-01-01'
+   },
+  {
+    id: 5,
+    name: 'empty',
+    expiration_date: ''
    }
 ];
 
