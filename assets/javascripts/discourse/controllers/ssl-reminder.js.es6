@@ -22,6 +22,13 @@ export default Ember.Controller.extend(BufferedContent, {
     cancel() {
       this.rollbackBuffer();
       this.set('addMode', false);
+    },
+
+    toggleDomainNotification(domain_id) {
+      this.get("model").toggleDomainNotification(domain_id).then(() => {
+        let domain = _.find(this.model.domains, function(obj) { return obj.id == domain_id });
+        domain.set("notification_enabled", !domain.notification_enabled)
+      }).catch(popupAjaxError);
     }
   }
 });

@@ -1,26 +1,22 @@
 import Domain from "./domain";
 
-const FIXTURES = [
-  {
-    id: 0,
-    name: 'test',
-    expiration_date: '2016-12-12'
-  }
-];
-
 let SslReminder = Discourse.Model.extend({
   addDomain(data) {
     return Discourse.ajax("/ssl-reminder/domains", {
       type: "POST",
       data: { domain: data }
     }).then((res) => { this.domains.pushObject(Domain.create(res.domain)); });
+  },
+
+  toggleDomainNotification(domain_id) {
+    return Discourse.ajax("/ssl-reminder/domains/" + domain_id + "/toggle_notification" , { type: "PUT" });
   }
 });
 
 SslReminder.reopenClass({
-  createFromJson() {
+  createFromJson(json) {
     return this.create({
-      domains: _.map(FIXTURES, (domain) => { return Domain.create(domain); }),
+      domains: _.map(json.ssl_reminder_domains, (domain) => { return Domain.createFromJson(domain); })
     });
   }
 });

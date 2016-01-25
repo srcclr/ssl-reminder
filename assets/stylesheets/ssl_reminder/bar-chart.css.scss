@@ -15,7 +15,7 @@
   font-family: "Simple Regular", sans-serif;
   font-size: 15px;
   text-transform: uppercase;
-  width: 100px;
+  width: 150px;
   flex:1;
   text-align: right;
   padding: 5px;
@@ -25,6 +25,8 @@
   flex: 3;
 
   div {
+    @extend .color--white;
+
     line-height: 25px;
     padding: 0 5px;
   }
@@ -44,4 +46,8 @@
 
 .barchart-column__bar--expired > div {
   @extend .bg-color--black;
+}
+
+.barchart-column__bar--none > div {
+  @extend .bg-color--muted;
 }

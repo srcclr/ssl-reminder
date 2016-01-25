@@ -18,12 +18,11 @@
 
   {{#if model.domains}}
     <section class="my-domains mb+">
-      <h3>My domains</h3>
       <table class="domains-list-table mb w--100">
         <thead>
           <tr>
-            <th class="w--20 pl0">Domain Name</th>
-            <th class="w--25">Domain URL</th>
+            <th class="w--20 pl0">Site Name</th>
+            <th class="w--25">Site URL</th>
             <th class="w--25">Expiration Date</th>
             <th class="w--10">Status</th>
             <th class="w--10">Notifications</th>
@@ -42,14 +41,12 @@
               {{domain.model.expiration_date}}
             </td>
             <td>
-              {{#if domain.model.status}}
-                <span class="badge--{{domain.model.status}}">{{domain.model.status}}</span>
-              {{else}}
-                <span class="badge--unavailable">Unavailable</span>
-              {{/if}}
+              <span class="badge--{{domain.model.status}}">{{domain.model.status}}</span>
             </td>
             <td class="text--center">
-              {{input type="checkbox"}}
+              <label {{action "toggleDomainNotification" domain.model.id on="click"}}>
+                {{input type="checkbox" checked=domain.model.notification_enabled}}
+              </label>
             </td>
             <td class="text--right">
               {{d-button action="destroy" icon="trash-o"}}
