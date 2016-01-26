@@ -9,6 +9,7 @@ register_asset("stylesheets/ssl_reminder/bar-chart.css.scss")
 
 after_initialize do
   require(File.expand_path("../app/models/user", __FILE__))
+  require(File.expand_path("../app/jobs/ssl_reminder/scan_certificates", __FILE__))
 end
 
 Discourse::Application.routes.append do
