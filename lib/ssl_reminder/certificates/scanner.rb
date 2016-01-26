@@ -20,9 +20,7 @@ module SslReminder
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-        http.open_timeout = 10
         http.read_timeout = 10
-        http.ssl_timeout = 10
         http.start(&:peer_cert)
       end
 
