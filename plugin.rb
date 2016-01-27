@@ -1,4 +1,4 @@
-# name: SSL Reminder
+# name: ssl-reminder
 # about: SSL Reminder tool reminds of the upcoming expiry of SSL certificates
 # version: 0.0.1
 
