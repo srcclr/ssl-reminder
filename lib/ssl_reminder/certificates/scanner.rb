@@ -5,9 +5,12 @@ module SslReminder
         @url = url
       end
 
-      def scan!
+      def scan
         cert = fetch_certificate
         cert.not_after
+      rescue Net::OpenTimeout, OpenSSL::SSL::SSLError => exception
+        Rails.logger.warn("Error while fetching SSL certificate for #{@url}: #{exception.inspect}")
+        nil
       end
 
       private
@@ -17,6 +20,7 @@ module SslReminder
         http = Net::HTTP.new(uri.host, uri.port)
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+        http.read_timeout = 10
         http.start(&:peer_cert)
       end
 

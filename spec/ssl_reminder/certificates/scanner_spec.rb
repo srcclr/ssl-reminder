@@ -13,7 +13,7 @@ describe SslReminder::Certificates::Scanner do
     allow(Net::HTTP).to receive(:new).and_return(http_client)
   end
 
-  subject { scanner.scan! }
+  subject { scanner.scan }
 
   it "returns ssl certificate expiry date" do
     expect(subject).to eq("2016-04-12 12:00:01 UTC")
