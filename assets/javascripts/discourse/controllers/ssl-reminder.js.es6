@@ -12,6 +12,7 @@ export default Ember.Controller.extend(BufferedContent, {
 
     save() {
       let attrs = this.get('buffered').getProperties('name', 'url');
+      attrs.status = 'none';
 
       this.get('model').addDomain(attrs).then((res) => {
         this.set('addMode', false);

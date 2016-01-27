@@ -5,7 +5,7 @@ let SslReminder = Discourse.Model.extend({
     return Discourse.ajax("/ssl-reminder/domains", {
       type: "POST",
       data: { domain: data }
-    }).then((res) => { this.domains.pushObject(Domain.create(res.domain)); });
+    }).then((res) => { this.domains.pushObject(Domain.createFromJson(res.domain)); });
   },
 
   toggleDomainNotification(domain_id) {
