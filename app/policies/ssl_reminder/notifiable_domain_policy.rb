@@ -14,7 +14,7 @@ module SslReminder
     def valid?
       return false unless domain.notification_enabled? && domain.days_remaining.present?
 
-      domain.days_remaining <= DAILY_THRESHOLD_DAYS ||
+      (1..DAILY_THRESHOLD_DAYS).cover?(domain.days_remaining) ||
         domain.days_remaining <= WEEKLY_THRESHOLD_DAYS && Date.current.wday == WEEKLY_DAY_TO_SEND
     end
   end
