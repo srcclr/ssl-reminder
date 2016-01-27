@@ -3,11 +3,9 @@ module SslReminder
     belongs_to :user
 
     def days_remaining
-      if expiration_date.blank?
-        nil
-      else
-        [(expiration_date - Date.current).to_i, 0].max
-      end
+      return if expiration_date.blank?
+
+      [(expiration_date - Date.current).to_i, 0].max
     end
   end
 end
