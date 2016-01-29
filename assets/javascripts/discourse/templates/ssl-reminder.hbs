@@ -1,0 +1,59 @@
+<div class="container mb">
+  <h2 class="mb">SSL Reminder</h2>
+
+  <section class="new-domain mb+">
+    <div class="mb">
+      {{#if addMode}}
+        {{partial "add-domain-form"}}
+      {{else}}
+        {{d-button action="addDomain" icon="plus" label="csp_reports.add_domain" class="btn--primary"}}
+      {{/if}}
+    </div>
+  </section>
+
+  <section class="expiration-stats mb+">
+    <h3 class="mb">Expiration Stats</h3>
+    {{bar-chart data=model.domains}}
+  </section>
+
+  {{#if model.domains}}
+    <section class="my-domains mb+">
+      <table class="domains-list-table mb w--100">
+        <thead>
+          <tr>
+            <th class="w--20 pl0">Site Name</th>
+            <th class="w--25">Site URL</th>
+            <th class="w--25">Expiration Date</th>
+            <th class="w--10">Status</th>
+            <th class="w--10">Notifications</th>
+            <th class="w--10"></th>
+          </tr>
+        </thead>
+        {{#each domain in model.domains itemController="domain"}}
+          <tr>
+            <td class="pl0">
+              {{#link-to 'domain' domain.model.id}}{{domain.model.name}}{{/link-to}}
+            </td>
+            <td>
+              <a href="{{domain.model.url}}" target="_blank">{{domain.model.url}}</a>
+            </td>
+            <td>
+              {{domain.model.expiration_date}}
+            </td>
+            <td>
+              <span class="badge--{{domain.model.status}}">{{domain.model.status}}</span>
+            </td>
+            <td class="text--center">
+              <label {{action "toggleDomainNotification" domain.model.id on="click"}}>
+                {{input type="checkbox" checked=domain.model.notification_enabled}}
+              </label>
+            </td>
+            <td class="text--right">
+              {{d-button action="destroy" icon="trash-o"}}
+            </td>
+          </tr>
+        {{/each}}
+      </table>
+    </section>
+  {{/if}}
+</div>

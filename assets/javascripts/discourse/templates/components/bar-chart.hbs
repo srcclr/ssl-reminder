@@ -1,0 +1,12 @@
+{{#each result in groupedResults}}
+  <div class="barchart-column">
+    <div class="barchart-column__title">
+      {{ result.status }}
+    </div>
+    <div class="barchart-column__bar barchart-column__bar--{{ result.status }}">
+      <div style="width: {{ percents data.length result.contents.length }}%">
+        {{ result.contents.length }}
+      </div>
+    </div>
+  </div>
+{{/each}}
