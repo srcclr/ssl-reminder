@@ -35,6 +35,12 @@ module SslReminder
       head status
     end
 
+    def scan
+      domain.expiration_date = 2.days.from_now
+      binding.pry
+      render json: domain
+    end
+
     def toggle_notification
       status = domain.update(notification_enabled: !domain.notification_enabled) ? :ok : :not_found
 
