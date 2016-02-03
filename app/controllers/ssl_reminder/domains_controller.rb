@@ -36,7 +36,7 @@ module SslReminder
     end
 
     def scan
-      domain.update(expiration_date: scanner.scan)
+      domain.update(expiration_date: scanner.scan, scanned: true)
       render json: domain
     end
 
