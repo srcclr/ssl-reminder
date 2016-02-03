@@ -22,7 +22,11 @@ const EXPIRATION_DAYS_BREAKPOINTS = [
 let Domain = Discourse.Model.extend({
   status: Em.computed("expiration_date", function(){
     if (this.get("expiration_date") == null || this.get("expiration_date") == "") {
-      return "none";
+      if (!this.get("scanned")) {
+        return "scanning";
+      } else {
+        return "none";
+      }
     } else {
       let now = moment().startOf("day");
       let expirationDate = moment(this.get("expiration_date"), DATE_FORMAT);
@@ -47,6 +51,7 @@ Domain.reopenClass({
       name: json.name,
       url: json.url,
       expiration_date: json.expiration_date,
+      scanned: json.scanned,
       notification_enabled: json.notification_enabled
     });
   }

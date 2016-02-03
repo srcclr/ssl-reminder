@@ -35,6 +35,11 @@ module SslReminder
       head status
     end
 
+    def scan
+      domain.update(expiration_date: scanner.scan, scanned: true)
+      render json: domain
+    end
+
     def toggle_notification
       status = domain.update(notification_enabled: !domain.notification_enabled) ? :ok : :not_found
 
@@ -58,6 +63,10 @@ module SslReminder
 
     def domain_params
       params.require(:domain).permit(:name, :url)
+    end
+
+    def scanner
+      SslReminder::Certificates::Scanner.new(domain.url)
     end
   end
 end
