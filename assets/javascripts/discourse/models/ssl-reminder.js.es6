@@ -9,6 +9,8 @@ let SslReminder = Discourse.Model.extend({
       return this.domains.pushObject(Domain.createFromJson(res.domain));
     }).then((domain) => {
       Discourse.ajax("/ssl-reminder/domains/" + domain.id + "/scan", { type: "GET" }).then((res) => {
+        let domain = _.find(this.domains, function(obj) { return obj.id == res.domain.id });
+        this.domains.removeObject(domain);
         this.domains.pushObject(Domain.createFromJson(res.domain));
       });
     });

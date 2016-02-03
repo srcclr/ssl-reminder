@@ -8,7 +8,7 @@ module SslReminder
       def scan
         cert = fetch_certificate
         cert.not_after
-      rescue Net::OpenTimeout, OpenSSL::SSL::SSLError => exception
+      rescue Net::OpenTimeout, OpenSSL::SSL::SSLError, Faraday::ConnectionFailed, Faraday::SSLError => exception
         Rails.logger.warn("Error while fetching SSL certificate for #{@url}: #{exception.inspect}")
         nil
       end

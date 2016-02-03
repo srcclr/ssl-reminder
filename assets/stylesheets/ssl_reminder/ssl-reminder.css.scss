@@ -4,7 +4,8 @@
 .badge--warning,
 .badge--danger,
 .badge--expired,
-.badge--none {
+.badge--none,
+.badge--scanning {
   @extend .badge;
 
   font-family: "Simple Regular", sans-serif;
@@ -18,3 +19,4 @@
 .badge--warning { @extend .badge--warning--medium; }
 .badge--danger { @extend .badge--warning--high; }
 .badge--expired { @extend .badge--dark; }
+.badge--scanning { @extend .badge--primary; }

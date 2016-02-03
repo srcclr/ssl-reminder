@@ -36,8 +36,7 @@ module SslReminder
     end
 
     def scan
-      domain.expiration_date = 2.days.from_now
-      binding.pry
+      domain.update(expiration_date: scanner.scan)
       render json: domain
     end
 
@@ -64,6 +63,10 @@ module SslReminder
 
     def domain_params
       params.require(:domain).permit(:name, :url)
+    end
+
+    def scanner
+      SslReminder::Certificates::Scanner.new(domain.url)
     end
   end
 end
