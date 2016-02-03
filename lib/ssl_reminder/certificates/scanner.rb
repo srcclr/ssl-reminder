@@ -21,6 +21,7 @@ module SslReminder
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_NONE
         http.read_timeout = 10
+        http.open_timeout = 10
         http.start(&:peer_cert)
       end
 
