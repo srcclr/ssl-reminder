@@ -3,7 +3,6 @@ export default Ember.Component.extend({
 
   groupedResults: function () {
     let result = [];
-
     this.get('data').forEach(item => {
       let hasType = result.findBy('status', item.get('status'));
 
@@ -18,5 +17,5 @@ export default Ember.Component.extend({
     });
 
      return result;
-  }.property('content.[]')
+  }.property("data.[]")
 });

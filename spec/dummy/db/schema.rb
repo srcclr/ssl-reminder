@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160122144856) do
+ActiveRecord::Schema.define(version: 20160203122200) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160122144856) do
     t.boolean  "notification_enabled"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "scanned",              default: false
   end
 
   add_index "ssl_reminder_domains", ["user_id"], name: "index_ssl_reminder_domains_on_user_id", using: :btree

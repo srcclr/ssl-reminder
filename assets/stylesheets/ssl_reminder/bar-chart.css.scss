@@ -51,3 +51,7 @@
 .barchart-column__bar--none > div {
   @extend .bg-color--muted;
 }
+
+.barchart-column__bar--scanning > div {
+  @extend .bg-color--primary;
+}
