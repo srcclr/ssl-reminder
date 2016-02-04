@@ -1,4 +1,19 @@
-.ssl-reminder {}
+%badge {
+  display: inline-block;
+  border-radius: 25px;
+  background-color: #94a2aa;
+  padding: .25em .5em;
+  width: 100%;
+  min-width: 1em;
+  vertical-align: middle;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1;
+  white-space: nowrap;
+  color: #fff;
+  font-family: "Simple Regular", sans-serif;
+  font-weight: normal;
+}
 
 .badge--safe,
 .badge--warning,
@@ -6,17 +21,11 @@
 .badge--expired,
 .badge--none,
 .badge--scanning {
-  @extend .badge;
-
-  font-family: "Simple Regular", sans-serif;
-  display: inline-block;
-  width: 100%;
-  font-weight: normal;
-  text-transform: uppercase;
+  @extend %badge;
 }
 
-.badge--safe { @extend .badge--success; }
-.badge--warning { @extend .badge--warning--medium; }
-.badge--danger { @extend .badge--warning--high; }
-.badge--expired { @extend .badge--dark; }
-.badge--scanning { @extend .badge--primary; }
+.badge--safe { background-color: #97d700; }
+.badge--scanning { background-color: #00afd7; }
+.badge--danger { background-color: #f9423a; }
+.badge--warning { background-color: #ffb81c; }
+.badge--expired { background-color: #231f20; }
