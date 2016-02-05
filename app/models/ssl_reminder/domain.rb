@@ -7,5 +7,15 @@ module SslReminder
 
       [(expiration_date - Date.current).to_i, 0].max
     end
+
+    def status
+      if (1..7).include?(days_remaining)
+        "danger"
+      elsif (8..30).include?(days_remaining)
+        "warning"
+      else
+        ""
+      end
+    end
   end
 end
