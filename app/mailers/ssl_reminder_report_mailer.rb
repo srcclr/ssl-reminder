@@ -21,7 +21,8 @@ class SslReminderReportMailer < ActionMailer::Base
       locals: {
         domain_name: domain.name,
         domain_url: domain.url,
-        days_remaining: domain.days_remaining
+        days_remaining: domain.days_remaining,
+        ssl_status: domain.status
       }
     )
   end
