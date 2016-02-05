@@ -7,7 +7,6 @@
 .barchart-column {
   margin-bottom: 10px;
   height: 25px;
-
   display: flex;
 }
 
@@ -25,33 +24,32 @@
   flex: 3;
 
   div {
-    @extend .color--white;
-
+    color: #fff;
     line-height: 25px;
     padding: 0 5px;
   }
 }
 
 .barchart-column__bar--safe > div {
-  @extend .bg-color--success;
+  background-color: #97d700;
 }
 
 .barchart-column__bar--warning > div {
-  @extend .bg-color--warning;
+  background-color: #ffb81c;
 }
 
 .barchart-column__bar--danger > div {
-  @extend .bg-color--danger;
+  background-color: #f9423a;
 }
 
 .barchart-column__bar--expired > div {
-  @extend .bg-color--black;
+  background-color: #231f20;
 }
 
 .barchart-column__bar--none > div {
-  @extend .bg-color--muted;
+  background-color: #94a2aa;
 }
 
 .barchart-column__bar--scanning > div {
-  @extend .bg-color--primary;
+  background-color: #00afd7l
 }

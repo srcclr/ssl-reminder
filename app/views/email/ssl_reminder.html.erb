@@ -1007,6 +1007,13 @@
             <tr style="vertical-align: top; text-align: left; padding: 0;" align="left">
               <td class="content" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; text-align: center; color: #202528; font-family: 'Roboto','Arial',sans-serif; font-weight: 300; line-height: 24px; font-size: 16px; margin: 0; padding: 0px 0px 10px;"
                 align="left" valign="top">
+                <div style="flex: 3;">
+                  <% background_color = ssl_status == "warning" ? "#ffb81c" : "#f9423a" %>
+                  <div style="background-color: <%= background_color %>; color: #fff; line-height: 25px; padding: 0 5px; width: 100px;"><%= ssl_status.upcase %></div>
+                </div>
+              </td>
+              <td class="content" style="word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; border-collapse: collapse !important; vertical-align: top; text-align: left; color: #202528; font-family: 'Roboto','Arial',sans-serif; font-weight: 300; line-height: 24px; font-size: 16px; margin: 0; padding: 0px 0px 10px;"
+                align="left" valign="top">
                 SSL Certificate for <%= domain_name %> (<a href="<%= domain_url %>"><%= domain_url %></a>) expires in <%= days_remaining %> days.
               </td>
             </tr>
