@@ -41,7 +41,7 @@
               {{domain.model.expiration_date}}
             </td>
             <td>
-              <span class="badge--{{domain.model.status}}">{{domain.model.status}}</span>
+              <span class="status-badge--{{domain.model.status}}">{{domain.model.status}}</span>
             </td>
             <td class="text--center">
               <label {{action "toggleDomainNotification" domain.model.id on="click"}}>
