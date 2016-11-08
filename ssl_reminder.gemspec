@@ -8,8 +8,8 @@ Gem::Specification.new do |s|
   s.name        = "ssl_reminder"
   s.version     = SslReminder::VERSION
   s.authors     = ["SRC:CLR"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "srcclr.com"
+  s.email       = ["hello@srcclr.com"]
+  s.homepage    = "http://www.sourceclear.com"
   s.summary     = "SSL Reminder"
   s.description = "SSL Reminder tool reminds of the upcoming expiry of SSL certificates"
   s.license     = "MIT"
